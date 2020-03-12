@@ -44,9 +44,11 @@ export default class extends React.Component {
 
     return (
       <div>
-        <button onClick={this.handleToggle}>Toggle</button>
-        <button onClick={this.handleStart}> Single run </button>
-        <div>{pots}</div>
+        <div>
+          <button onClick={this.handleToggle}>Toggle</button>
+          <button onClick={this.handleStart}> Single run </button>
+        </div>
+        <div style={{ display: "flex" }}>{pots}</div>
       </div>
     );
   }
