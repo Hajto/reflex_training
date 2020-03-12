@@ -5,7 +5,10 @@ import TrainingPot from "./TrainingPot";
 const stateZero = [false, false, false, false];
 const colors = ["red", "blue", "yellow", "green"];
 
-const maxInASequence = 3;
+const maxInASequence = process.env.REACT_APP_MAX_IN_SEQUENCE || 3;
+const minorDelay = process.env.REACT_APP_MINOR_DELAY || 750;
+const majorDelay = process.env.REACT_APP_MAJOR_DELAY || 3000;
+
 export default class extends React.Component {
   constructor() {
     super();
@@ -43,7 +46,7 @@ export default class extends React.Component {
       <div>
         <button onClick={this.handleToggle}>Toggle</button>
         <button onClick={this.handleStart}> Single run </button>
-        {pots}
+        <div>{pots}</div>
       </div>
     );
   }
@@ -63,7 +66,7 @@ export default class extends React.Component {
     } else {
       this.handleStart();
       this.setState({
-        repeatingInterval: setInterval(this.handleStart, 3000)
+        repeatingInterval: setInterval(this.handleStart, majorDelay)
       });
     }
   }
@@ -80,7 +83,7 @@ export default class extends React.Component {
 
       setTimeout(() => {
         this.scheduleExecution(_.drop(1)(pots));
-      }, 700);
+      }, minorDelay);
     }
     this.setState(state => ({ ...state, pots: newPotsState }));
   }
