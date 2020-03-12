@@ -8,6 +8,7 @@ const colors = ["red", "blue", "yellow", "green"];
 const maxInASequence = parseInt(process.env.REACT_APP_MAX_IN_SEQUENCE) || 3;
 const minorDelay = parseInt(process.env.REACT_APP_MINOR_DELAY) || 750;
 const majorDelay = parseInt(process.env.REACT_APP_MAJOR_DELAY) || 3000;
+console.log(maxInASequence, minorDelay, majorDelay, process.env);
 
 export default class extends React.Component {
   constructor() {
