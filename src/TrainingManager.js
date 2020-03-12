@@ -5,9 +5,9 @@ import TrainingPot from "./TrainingPot";
 const stateZero = [false, false, false, false];
 const colors = ["red", "blue", "yellow", "green"];
 
-const maxInASequence = process.env.REACT_APP_MAX_IN_SEQUENCE || 3;
-const minorDelay = process.env.REACT_APP_MINOR_DELAY || 750;
-const majorDelay = process.env.REACT_APP_MAJOR_DELAY || 3000;
+const maxInASequence = parseInt(process.env.REACT_APP_MAX_IN_SEQUENCE) || 3;
+const minorDelay = parseInt(process.env.REACT_APP_MINOR_DELAY) || 750;
+const majorDelay = parseInt(process.env.REACT_APP_MAJOR_DELAY) || 3000;
 
 export default class extends React.Component {
   constructor() {
